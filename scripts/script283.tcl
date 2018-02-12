@@ -76,7 +76,7 @@ $ns connect $tcp1 $sink0
 $tcp1 set fid_ 2
 
 #Setup a TCP connection
-set tcp1 [new Agent/TCP/Vegas]
+set tcp2 [new Agent/TCP/Vegas]
 $tcp2 set class_ 3
 $ns attach-agent $n5 $tcp2
 set sink1 [new Agent/TCPSink]
