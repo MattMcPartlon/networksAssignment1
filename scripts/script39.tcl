@@ -2,9 +2,9 @@
 set ns [new Simulator]
 
 #Define the output files
-set f0 [open out0Reno_Reno_10_2BR.tr w]
-set f1 [open out1Reno_Reno_10_2BR.tr w]
-set f2 [open out2Reno_Reno_10_2BR.tr w]
+set f0 [open out0Reno_Vegas_10_2BR.tr w]
+set f1 [open out1Reno_Vegas_10_2BR.tr w]
+set f2 [open out2Reno_Vegas_10_2BR.tr w]
 
 
 #Define different colors for data flows (for NAM)
@@ -13,8 +13,8 @@ $ns color 2 Red
 $ns color 3 Green
 
 #Open the NAM trace file
-set nf [open outReno_Reno_10_2BR.nam w]
-set nf2 [open out_mainReno_Reno_10_2BR.tr w]
+set nf [open outReno_Vegas_10_2BR.nam w]
+set nf2 [open out_mainReno_Vegas_10_2BR.tr w]
 $ns namtrace-all $nf
 $ns trace-all $nf2
 
@@ -76,7 +76,7 @@ $ns connect $tcp1 $sink0
 $tcp1 set fid_ 2
 
 #Setup a TCP connection
-set tcp2 [new Agent/TCP/Reno]
+set tcp2 [new Agent/TCP/Vegas]
 $tcp2 set class_ 3
 $ns attach-agent $n5 $tcp2
 set sink1 [new Agent/TCPSink]

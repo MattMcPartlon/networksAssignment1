@@ -2,9 +2,9 @@
 set ns [new Simulator]
 
 #Define the output files
-set f0 [open out0NewReno_Reno_20_10BR.tr w]
-set f1 [open out1NewReno_Reno_20_10BR.tr w]
-set f2 [open out2NewReno_Reno_20_10BR.tr w]
+set f0 [open out0Newreno_Reno_10_10BR.tr w]
+set f1 [open out1Newreno_Reno_10_10BR.tr w]
+set f2 [open out2Newreno_Reno_10_10BR.tr w]
 
 
 #Define different colors for data flows (for NAM)
@@ -13,8 +13,8 @@ $ns color 2 Red
 $ns color 3 Green
 
 #Open the NAM trace file
-set nf [open outNewReno_Reno_20_10BR.nam w]
-set nf2 [open out_mainNewReno_Reno_20_10BR.tr w]
+set nf [open outNewreno_Reno_10_10BR.nam w]
+set nf2 [open out_mainNewreno_Reno_10_10BR.tr w]
 $ns namtrace-all $nf
 $ns trace-all $nf2
 
@@ -37,7 +37,7 @@ $ns duplex-link $n3 $n4 10Mb 10ms DropTail
 $ns duplex-link $n3 $n6 10Mb 10ms DropTail
 
 #Set Queue Size of link (n2-n3) to 10
-$ns queue-limit $n2 $n3 20
+$ns queue-limit $n2 $n3 10
 
 #Give node position (for NAM)
 $ns duplex-link-op $n1 $n2 orient right-down
@@ -67,7 +67,7 @@ $ns connect $udp $null
 $udp set fid_ 2
 
 #Setup a TCP connection
-set tcp1 [new Agent/TCP/NewReno]
+set tcp1 [new Agent/TCP/Newreno]
 $tcp1 set class_ 2
 $ns attach-agent $n1 $tcp1
 set sink0 [new Agent/TCPSink]
