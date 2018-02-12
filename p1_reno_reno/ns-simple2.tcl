@@ -2,9 +2,9 @@
 set ns [new Simulator]
 
 #Define the output files
-set f0 [open out0_R_R_10_12BR.tr w]
-set f1 [open out1_R_R_10_12BR.tr w]
-set f2 [open out2_R_R_10_12BR.tr w]
+set f0 [open out0_R_R_20_25BR.tr w]
+set f1 [open out1_R_R_20_25BR.tr w]
+set f2 [open out2_R_R_20_25BR.tr w]
 
 
 
@@ -15,8 +15,8 @@ $ns color 2 Red
 $ns color 3 Green 
 
 #Open the NAM trace file
-set nf [open out_R_R_10_12BR.nam w]
-set nf2 [open out_main_R_R_10_12BR.tr w]
+set nf [open out_R_R_20_25BR.nam w]
+set nf2 [open out_main_R_R_20_25BR.tr w]
 $ns namtrace-all $nf
 $ns trace-all $nf2
 
@@ -38,7 +38,7 @@ $ns duplex-link $n3 $n4 10Mb 10ms DropTail
 $ns duplex-link $n3 $n6 10Mb 10ms DropTail
 
 #Set Queue Size of link (n2-n3) to 10
-$ns queue-limit $n2 $n3 10
+$ns queue-limit $n2 $n3 20
 
 
 #Give node position (for NAM)
@@ -116,7 +116,7 @@ set cbr [new Application/Traffic/CBR]
 $cbr attach-agent $tcp
 $cbr set type_ CBR
 $cbr set packet_size_ 1000
-$cbr set rate_ 12mb
+$cbr set rate_ 25mb
 $cbr set random_ false
 
 
